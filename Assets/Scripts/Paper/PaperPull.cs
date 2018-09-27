@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PaperPull : MonoBehaviour
@@ -25,6 +26,14 @@ public class PaperPull : MonoBehaviour
     private bool isStopped;
 
     [SerializeField]
+    private AudioSource pullNoiseAudio;
+    [SerializeField]
+    private List<AudioClip> pullNoises;
+    [SerializeField]
+    private float pullNoisePlayRate;
+    private float lastPullNoisePlayedLength;
+
+    [SerializeField]
     private Text pulledLengthText;
 
     private void Enable()
@@ -42,6 +51,7 @@ public class PaperPull : MonoBehaviour
     private void Update()
     {
         Pull();
+        PlayPullNoise();
         UpdatePulledLengthText();
     }
 
@@ -82,6 +92,18 @@ public class PaperPull : MonoBehaviour
         var pullDistanceInCm = pullDistance / Screen.dpi * inch2cm;
         var pullDuration = Time.time - pullStartTime;
         pullSpeed = pullDistanceInCm / pullDuration;
+    }
+
+    private void PlayPullNoise()
+    {
+        if (pullNoiseAudio.isPlaying) { return; }
+
+        if (pulledLength - lastPullNoisePlayedLength > pullNoisePlayRate)
+        {
+            pullNoiseAudio.clip = pullNoises[Random.Range(0, pullNoises.Count)];
+            pullNoiseAudio.Play();
+            lastPullNoisePlayedLength = pulledLength;
+        }
     }
 
     private void UpdatePulledLengthText()
