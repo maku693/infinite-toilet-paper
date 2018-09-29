@@ -55,6 +55,7 @@ public class PaperPull : MonoBehaviour
 
     private void Update()
     {
+        GetPullInput();
         Pull();
         PlayCoverNoise();
         SetPullNoiseVolume();
@@ -64,8 +65,6 @@ public class PaperPull : MonoBehaviour
     private void Pull()
     {
         if (isStopped) { return; }
-
-        GetPullInput();
 
         var pullProgress = pullSpeed * pullSpeedMultiplier * Time.deltaTime;
         if (pullProgress < pullProgressTorelance)
