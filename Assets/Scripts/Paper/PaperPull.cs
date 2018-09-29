@@ -96,8 +96,6 @@ public class PaperPull : MonoBehaviour
 
     private void PlayPullNoise()
     {
-        if (pullNoiseAudio.isPlaying) { return; }
-
         if (pulledLength - lastPullNoisePlayedLength > pullNoisePlayRate)
         {
             pullNoiseAudio.clip = pullNoises[Random.Range(0, pullNoises.Count)];
