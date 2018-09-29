@@ -26,12 +26,12 @@ public class PaperPull : MonoBehaviour
     private bool isStopped;
 
     [SerializeField]
-    private AudioSource pullNoiseAudio;
+    private AudioSource coverNoiseAudio;
     [SerializeField]
-    private List<AudioClip> pullNoises;
+    private List<AudioClip> coverNoises;
     [SerializeField]
-    private float pullNoisePlayRate;
-    private float lastPullNoisePlayedLength;
+    private float coverNoisePlayRate;
+    private float lastCoverNoisePlayedLength;
 
     [SerializeField]
     private Text pulledLengthText;
@@ -51,7 +51,7 @@ public class PaperPull : MonoBehaviour
     private void Update()
     {
         Pull();
-        PlayPullNoise();
+        PlayCoverNoise();
         UpdatePulledLengthText();
     }
 
@@ -94,13 +94,13 @@ public class PaperPull : MonoBehaviour
         pullSpeed = pullDistanceInCm / pullDuration;
     }
 
-    private void PlayPullNoise()
+    private void PlayCoverNoise()
     {
-        if (pulledLength - lastPullNoisePlayedLength > pullNoisePlayRate)
+        if (pulledLength - lastCoverNoisePlayedLength > coverNoisePlayRate)
         {
-            pullNoiseAudio.clip = pullNoises[Random.Range(0, pullNoises.Count)];
-            pullNoiseAudio.Play();
-            lastPullNoisePlayedLength = pulledLength;
+            coverNoiseAudio.clip = coverNoises[Random.Range(0, coverNoises.Count)];
+            coverNoiseAudio.Play();
+            lastCoverNoisePlayedLength = pulledLength;
         }
     }
 

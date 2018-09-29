@@ -350,10 +350,10 @@ MonoBehaviour:
   pullSpeedMultiplier: 10
   pullSpeedFriction: 0.01
   pullProgressTorelance: 0.01
-  pullNoiseAudio: {fileID: 1565533654}
-  pullNoises:
+  coverNoiseAudio: {fileID: 1565533654}
+  coverNoises:
   - {fileID: 8300000, guid: c21dcf017193b6d48a731bf49077a0f9, type: 3}
-  pullNoisePlayRate: 10
+  coverNoisePlayRate: 10
   pulledLengthText: {fileID: 1801368905}
 --- !u!4 &1565533653
 Transform:
