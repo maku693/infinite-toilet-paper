@@ -34,6 +34,11 @@ public class PaperPull : MonoBehaviour
     private float lastCoverNoisePlayedLength;
 
     [SerializeField]
+    private AudioSource pullNoiseAudio;
+    [SerializeField]
+    private float pullNoiseVolumeMultiplier;
+
+    [SerializeField]
     private Text pulledLengthText;
 
     private void Enable()
@@ -52,6 +57,7 @@ public class PaperPull : MonoBehaviour
     {
         Pull();
         PlayCoverNoise();
+        SetPullNoiseVolume();
         UpdatePulledLengthText();
     }
 
@@ -102,6 +108,11 @@ public class PaperPull : MonoBehaviour
             coverNoiseAudio.Play();
             lastCoverNoisePlayedLength = pulledLength;
         }
+    }
+
+    private void SetPullNoiseVolume()
+    {
+        pullNoiseAudio.volume = pullSpeed * pullNoiseVolumeMultiplier;
     }
 
     private void UpdatePulledLengthText()
