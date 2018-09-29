@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4449720688670346}
   - component: {fileID: 114979554105477084}
   m_Layer: 0
-  m_Name: Paper
+  m_Name: PaperRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,10 +300,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744842552921196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43eb6714244bf86429cb2b916dd807e6, type: 3}
+  m_Script: {fileID: 11500000, guid: fcc1ed9873c9d004cba45f7ea4677c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulledLengthFormat: N3
   pullSpeedMultiplier: 10
   pullSpeedFriction: 0.01
   pullProgressTorelance: 0.01
@@ -313,4 +312,3 @@ MonoBehaviour:
   coverNoisePlayRate: 10
   pullNoiseAudio: {fileID: 82660448462821748}
   pullNoiseVolumeMultiplier: 0.5
-  pulledLengthText: {fileID: 0}

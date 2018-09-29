@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PaperPull : MonoBehaviour
+public class PaperRoll : MonoBehaviour
 {
     private const float inch2cm = 2.54F;
     private float pulledLength;
@@ -116,6 +116,6 @@ public class PaperPull : MonoBehaviour
 
     private void UpdatePulledLengthText()
     {
-        pulledLengthText.text = pulledLengthString;
+        pulledLengthText.text = pulledLength.ToString(pulledLengthFormat) + "m";
     }
 }
