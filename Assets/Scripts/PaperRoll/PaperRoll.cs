@@ -117,6 +117,6 @@ public class PaperRoll : MonoBehaviour
 
     private void UpdatePulledLengthText()
     {
-        pulledLengthText.text = pulledLength.ToString(pulledLengthFormat) + "m";
+        pulledLengthText.text = pulledLengthString;
     }
 }
