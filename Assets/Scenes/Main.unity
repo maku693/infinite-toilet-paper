@@ -169,11 +169,6 @@ Prefab:
       propertyPath: pulledLengthText
       value: 
       objectReference: {fileID: 66985623}
-    - target: {fileID: 114979554105477084, guid: 9200620e722c10944a4cba92c3bbd64f,
-        type: 2}
-      propertyPath: pulledLengthFormat
-      value: <mspace=2em>000.000m</mspace>
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9200620e722c10944a4cba92c3bbd64f, type: 2}
   m_IsPrefabAsset: 0
@@ -210,7 +205,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &66985623
 MonoBehaviour:
@@ -231,7 +226,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 000.000m
+  m_text: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>m
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bb6960bdd4c1434b996cb9cd3a4710a, type: 2}
   m_sharedMaterial: {fileID: 21562749604217334, guid: 7bb6960bdd4c1434b996cb9cd3a4710a,

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc1ed9873c9d004cba45f7ea4677c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulledLengthFormat: <mspace=2em>000.000m</mspace>
+  pulledLengthFormat: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>m
   pullSpeedMultiplier: 10
   pullSpeedFriction: 0.01
   pullProgressTorelance: 0.01
