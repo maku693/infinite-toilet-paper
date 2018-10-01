@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PaperRoll : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PaperRoll : MonoBehaviour
     private float pulledLength;
     [SerializeField]
     private string pulledLengthFormat;
-    private string pulledLengthString => pulledLength.ToString(pulledLengthFormat) + "m";
+    private string pulledLengthString => pulledLength.ToString(pulledLengthFormat);
 
     private bool isPulled;
     private Vector2 pullStart;
@@ -39,7 +40,7 @@ public class PaperRoll : MonoBehaviour
     private float pullNoiseVolumeMultiplier;
 
     [SerializeField]
-    private Text pulledLengthText;
+    private TMP_Text pulledLengthText;
 
     private void Enable()
     {
