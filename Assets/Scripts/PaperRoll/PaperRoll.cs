@@ -49,7 +49,7 @@ public class PaperRoll : MonoBehaviour
         if (isStopped) { return; }
 
         var pullProgress = pullSpeed * pullSpeedMultiplier * Time.deltaTime;
-        if (pullProgress < pullProgressTorelance)
+        if (pulledLength != 0.0F && pullProgress < pullProgressTorelance)
         {
             isStopped = true;
             return;
