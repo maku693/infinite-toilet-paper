@@ -6,24 +6,17 @@ using TMPro;
 public class PaperRoll : MonoBehaviour
 {
     private const float inch2cm = 2.54F;
-    private float pulledLength;
-    [SerializeField]
-    private string pulledLengthFormat;
-    private string pulledLengthString => pulledLength.ToString(pulledLengthFormat);
 
-    private bool isPulled;
-    private Vector2 pullStart;
-    private float pullStartTime;
-    private float pullSpeed;
-
+    public float pulledLength;
+    public float pullSpeed;
     [SerializeField]
     private float pullSpeedMultiplier;
     [SerializeField]
     private float pullSpeedFriction;
     private float pullSpeedDamping => 1.0F - pullSpeedFriction;
-
     [SerializeField]
     private float pullProgressTorelance;
+
     private bool isStopped;
 
     [SerializeField]
@@ -39,28 +32,16 @@ public class PaperRoll : MonoBehaviour
     [SerializeField]
     private float pullNoiseVolumeMultiplier;
 
-    [SerializeField]
-    private TMP_Text pulledLengthText;
-
     private void Enable()
     {
-        isPulled = false;
         isStopped = false;
-    }
-
-    private void Start()
-    {
-        // For demonstration
-        pullSpeed = 10F;
     }
 
     private void Update()
     {
-        GetPullInput();
         Pull();
         PlayCoverNoise();
         SetPullNoiseVolume();
-        UpdatePulledLengthText();
     }
 
     private void Pull()
@@ -77,29 +58,6 @@ public class PaperRoll : MonoBehaviour
         pullSpeed *= pullSpeedDamping;
     }
 
-    private void GetPullInput()
-    {
-        if (isPulled) { return; }
-
-        if (Input.touchCount == 0) { return; }
-
-        var touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Began)
-        {
-            pullStart = touch.position;
-            pullStartTime = Time.time;
-            return;
-        }
-
-        if (touch.phase != TouchPhase.Ended) { return; }
-        isPulled = true;
-
-        var pullDistance = (touch.position - pullStart).magnitude;
-        var pullDistanceInCm = pullDistance / Screen.dpi * inch2cm;
-        var pullDuration = Time.time - pullStartTime;
-        pullSpeed = pullDistanceInCm / pullDuration;
-    }
-
     private void PlayCoverNoise()
     {
         if (pulledLength - lastCoverNoisePlayedLength > coverNoisePlayRate)
@@ -113,10 +71,5 @@ public class PaperRoll : MonoBehaviour
     private void SetPullNoiseVolume()
     {
         pullNoiseAudio.volume = pullSpeed * pullNoiseVolumeMultiplier;
-    }
-
-    private void UpdatePulledLengthText()
-    {
-        pulledLengthText.text = pulledLengthString;
     }
 }
