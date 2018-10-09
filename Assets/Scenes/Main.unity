@@ -664,15 +664,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pulledLength: 0
   pullSpeed: 0
-  pullSpeedMultiplier: 10
+  pullSpeedMultiplier: 1
   pullSpeedFriction: 0.01
-  pullProgressTorelance: 0.01
+  pullSpeedTorelance: 0.01
   coverNoiseAudio: {fileID: 1567748619}
   coverNoises:
   - {fileID: 8300000, guid: c21dcf017193b6d48a731bf49077a0f9, type: 3}
-  coverNoisePlayRate: 10
+  coverNoisePlayRate: 1
   pullNoiseAudio: {fileID: 232223399}
-  pullNoiseVolumeMultiplier: 0.5
+  pullNoiseVolumeMultiplier: 0.01
 --- !u!4 &1037313248
 Transform:
   m_ObjectHideFlags: 0
