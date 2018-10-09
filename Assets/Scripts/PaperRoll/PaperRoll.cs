@@ -15,7 +15,7 @@ public class PaperRoll : MonoBehaviour
     private float pullSpeedFriction;
     private float pullSpeedDamping => 1.0F - pullSpeedFriction;
     [SerializeField]
-    private float pullProgressTorelance;
+    private float pullSpeedTorelance;
 
     private bool isStopped;
 
@@ -48,13 +48,13 @@ public class PaperRoll : MonoBehaviour
     {
         if (isStopped) { return; }
 
-        var pullProgress = pullSpeed * pullSpeedMultiplier * Time.deltaTime;
-        if (pulledLength != 0.0F && pullProgress < pullProgressTorelance)
+        if (pulledLength != 0.0F && pullSpeed < pullSpeedTorelance)
         {
             isStopped = true;
             return;
         }
-        pulledLength += pullProgress;
+
+        pulledLength += pullSpeed * pullSpeedMultiplier * Time.deltaTime;
         pullSpeed *= pullSpeedDamping;
     }
 
