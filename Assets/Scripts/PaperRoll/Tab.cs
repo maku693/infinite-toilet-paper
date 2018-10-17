@@ -27,5 +27,7 @@ public class Tab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandl
         var pullSpeed = pullDistance / pullDuration;
 
         paperRoll.pullSpeed = pullSpeed;
+
+        Destroy(gameObject);
     }
 }
