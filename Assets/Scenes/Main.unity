@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -360,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232223400}
   - component: {fileID: 232223399}
+  - component: {fileID: 232223401}
   m_Layer: 0
   m_Name: PullNoise
   m_TagString: Untagged
@@ -478,6 +479,20 @@ Transform:
   m_Father: {fileID: 1037313248}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &232223401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232223398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125b7113300468d4491fc339f2f3ab30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperRoll: {fileID: 1037313247}
+  pullNoiseAudio: {fileID: 232223399}
+  pullNoiseVolumeMultiplier: 0.01
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567748620}
   - component: {fileID: 1567748619}
+  - component: {fileID: 1567748621}
   m_Layer: 0
   m_Name: CoverNoise
   m_TagString: Untagged
@@ -899,6 +915,22 @@ Transform:
   m_Father: {fileID: 1037313248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567748621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567748618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfd0968bbe26534db226fb741d372e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperRoll: {fileID: 1037313247}
+  coverNoiseAudio: {fileID: 1567748619}
+  coverNoises:
+  - {fileID: 8300000, guid: c21dcf017193b6d48a731bf49077a0f9, type: 3}
+  coverNoisePlayRate: 0.5
 --- !u!1 &1699910777
 GameObject:
   m_ObjectHideFlags: 0
