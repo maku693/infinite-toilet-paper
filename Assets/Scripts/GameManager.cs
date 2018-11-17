@@ -1,8 +1,5 @@
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 [DefaultExecutionOrder(1)]
 public class GameManager : MonoBehaviour
