@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private PaperRoll paperRoll;
-    [SerializeField]
-    private AudioSource confirmationAudio;
 
     [SerializeField]
     private Animator rollingPaperRollAnimator;
@@ -22,7 +20,7 @@ public class GameManager : MonoBehaviour
     private Button startButton;
 
     [SerializeField]
-    private CountdownText countdownText;
+    private Countdown countdown;
 
     [SerializeField]
     private PulledLengthText pulledLengthText;
@@ -34,7 +32,6 @@ public class GameManager : MonoBehaviour
         titleText.SetActive(false);
         guidanceText.SetActive(false);
         startButton.gameObject.SetActive(false);
-        countdownText.gameObject.SetActive(false);
         pulledLengthText.gameObject.SetActive(false);
         pullHandler.gameObject.SetActive(false);
 
@@ -44,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private async Task GameLoop()
     {
-        await Countdown();
+        await countdown.BeginCountdown();
         await Playing();
 
         await GameLoop();
@@ -70,23 +67,11 @@ public class GameManager : MonoBehaviour
 
         await startTaskSource.Task;
 
-        confirmationAudio.Play();
         titleText.SetActive(false);
         guidanceText.SetActive(false);
         startButton.gameObject.SetActive(false);
 
         rollingPaperRollAnimator.SetBool("rotate", false);
-    }
-
-    private async Task Countdown()
-    {
-        paperRoll.gameObject.SetActive(true);
-
-        countdownText.gameObject.SetActive(true);
-
-        await countdownText.Countdown();
-
-        countdownText.gameObject.SetActive(false);
     }
 
     private async Task Playing()
@@ -117,6 +102,7 @@ public class GameManager : MonoBehaviour
 
         pulledLengthText.gameObject.SetActive(false);
         paperRoll.gameObject.SetActive(false);
+        paperRoll.gameObject.SetActive(true);
     }
 
     private void Update()
