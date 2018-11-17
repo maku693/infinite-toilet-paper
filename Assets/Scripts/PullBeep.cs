@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoverNoise : MonoBehaviour
+public class PullBeep : MonoBehaviour
 {
     [SerializeField]
     private PaperRoll paperRoll;
 
     [SerializeField]
-    private AudioSource coverNoiseAudio;
-    [SerializeField]
-    private List<AudioClip> coverNoises;
+    private new AudioSource audio;
     [SerializeField]
     private float coverNoisePlayRate;
 
@@ -27,8 +25,7 @@ public class CoverNoise : MonoBehaviour
     {
         if (paperRoll.pulledLength - lastCoverNoisePlayedLength > coverNoisePlayRate)
         {
-            coverNoiseAudio.clip = coverNoises[Random.Range(0, coverNoises.Count)];
-            coverNoiseAudio.Play();
+            audio.Play();
             lastCoverNoisePlayedLength = paperRoll.pulledLength;
         }
     }

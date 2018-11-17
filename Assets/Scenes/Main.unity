@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 1759579371}
   - component: {fileID: 1759579370}
   m_Layer: 0
-  m_Name: CoverNoise
+  m_Name: PullBeep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2035,9 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperRoll: {fileID: 1037313247}
-  coverNoiseAudio: {fileID: 1759579371}
-  coverNoises:
-  - {fileID: 8300000, guid: c21dcf017193b6d48a731bf49077a0f9, type: 3}
+  audio: {fileID: 1759579371}
   coverNoisePlayRate: 0.5
 --- !u!82 &1759579371
 AudioSource:
@@ -2050,7 +2048,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243428632017115446, guid: 5ca773fb3aea249868c91355a83c6a91,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c21dcf017193b6d48a731bf49077a0f9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
