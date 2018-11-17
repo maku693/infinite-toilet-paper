@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[DefaultExecutionOrder(-1)]
 public class PaperRoll : MonoBehaviour
 {
     private const float inch2cm = 2.54F;

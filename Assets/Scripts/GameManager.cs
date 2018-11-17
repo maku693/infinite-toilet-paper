@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(1)]
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Result result;
 
-    private async Task OnEnable()
+    private async void OnEnable()
     {
         await title.Run();
         await GameLoop();
