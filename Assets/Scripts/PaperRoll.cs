@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
@@ -27,26 +28,25 @@ public class PaperRoll : MonoBehaviour
     [SerializeField]
     private float pullSpeedTorelance;
 
-    private bool isStopped;
-
-    private void Enable()
-    {
-        isStopped = false;
-    }
+    public event Action onStop;
 
     public void Pull(float speed)
     {
         pullSpeed = speed;
     }
 
+    private void OnEnable()
+    {
+        pullSpeed = 0.0F;
+        manualPulledLength = 0.0F;
+    }
+
     private void Update()
     {
-        if (isStopped) { return; }
-
         if (manualPulledLength != 0.0F && pullSpeed < pullSpeedTorelance)
         {
-            isStopped = true;
-            return;
+            pullSpeed = 0.0F;
+            onStop.Invoke();
         }
 
         manualPulledLength += pullSpeed * pullSpeedMultiplier * Time.deltaTime;

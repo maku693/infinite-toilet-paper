@@ -1,14 +1,14 @@
+using System;
 using UnityEngine;
 using TMPro;
 
 public class PulledLengthText : MonoBehaviour
 {
-    [SerializeField]
-    private PaperRoll paperRoll;
-
+    [NonSerialized]
+    public float pulledLength;
     [SerializeField]
     private string pulledLengthFormat;
-    private string pulledLengthString => paperRoll.manualPulledLength.ToString(pulledLengthFormat);
+    private string pulledLengthString => pulledLength.ToString(pulledLengthFormat);
 
     [SerializeField]
     private TMP_Text text;

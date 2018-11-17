@@ -12,7 +12,16 @@ public class CoverNoise : MonoBehaviour
     private List<AudioClip> coverNoises;
     [SerializeField]
     private float coverNoisePlayRate;
+
     private float lastCoverNoisePlayedLength;
+
+    private void OnEnable()
+    {
+        paperRoll.onStop += () =>
+        {
+            lastCoverNoisePlayedLength = 0;
+        };
+    }
 
     private void Update()
     {
