@@ -2041,7 +2041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d9e60bf13e944ccb2f2266c505c137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperRoll: {fileID: 1037313247}
   title: {fileID: 1352568445}
   countdown: {fileID: 34050127}
   playing: {fileID: 1194585504}

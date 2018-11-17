@@ -5,9 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private PaperRoll paperRoll;
-
-    [SerializeField]
     private Title title;
     [SerializeField]
     private Countdown countdown;
