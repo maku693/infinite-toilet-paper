@@ -39,7 +39,12 @@ public class PaperRoll : MonoBehaviour
 
     private void Update()
     {
-        if (manualPulledLength != 0.0F && pullSpeed < pullSpeedTorelance)
+        if (pullSpeed == 0.0F)
+        {
+            return;
+        }
+
+        if (manualPulledLength != 0.0 && pullSpeed < pullSpeedTorelance)
         {
             pullSpeed = 0.0F;
             onStop.Invoke();

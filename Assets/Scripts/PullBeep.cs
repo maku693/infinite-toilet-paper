@@ -15,10 +15,7 @@ public class PullBeep : MonoBehaviour
 
     private void OnEnable()
     {
-        paperRoll.onStop += () =>
-        {
-            lastCoverNoisePlayedLength = 0;
-        };
+        lastCoverNoisePlayedLength = 0;
     }
 
     private void Update()

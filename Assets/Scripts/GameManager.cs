@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PullHandler pullHandler;
 
+    [SerializeField]
+    private Result result;
+
     private async Task OnEnable()
     {
         titleText.SetActive(false);
@@ -41,8 +44,11 @@ public class GameManager : MonoBehaviour
 
     private async Task GameLoop()
     {
+        paperRoll.gameObject.SetActive(true);
         await countdown.BeginCountdown();
         await Playing();
+        await result.ShowResult(paperRoll.manualPulledLength);
+        paperRoll.gameObject.SetActive(false);
 
         await GameLoop();
     }
@@ -94,15 +100,13 @@ public class GameManager : MonoBehaviour
         onStop = () =>
         {
             stopTaskSource.SetResult(null);
-            paperRoll.onStop -= (onStop);
+            paperRoll.onStop -= onStop;
         };
         paperRoll.onStop += onStop;
 
         await stopTaskSource.Task;
 
         pulledLengthText.gameObject.SetActive(false);
-        paperRoll.gameObject.SetActive(false);
-        paperRoll.gameObject.SetActive(true);
     }
 
     private void Update()
