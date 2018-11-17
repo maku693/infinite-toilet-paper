@@ -544,6 +544,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 34f7a60840daa494e91f34e39260c54a,
     type: 3}
   m_PrefabInternal: {fileID: 298698829}
+--- !u!1 &298698833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100012, guid: 34f7a60840daa494e91f34e39260c54a,
+    type: 3}
+  m_PrefabInternal: {fileID: 298698829}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037313248}
   - component: {fileID: 1037313247}
+  - component: {fileID: 1037313249}
   m_Layer: 0
   m_Name: PaperRoll
   m_TagString: Untagged
@@ -750,6 +756,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037313249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037313246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec59e194b8bfd410791832d91ccf8a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperRoll: {fileID: 1037313247}
+  paper: {fileID: 298698833}
 --- !u!1 &1416134170
 GameObject:
   m_ObjectHideFlags: 0
