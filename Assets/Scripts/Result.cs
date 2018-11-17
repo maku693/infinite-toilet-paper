@@ -25,13 +25,13 @@ public class Result : MonoBehaviour
 
     private void OnEnable()
     {
-        resultUI.gameObject.SetActive(false);
+        resultUI.SetActive(false);
     }
 
     public async Task Run()
     {
         scoreText.text = paperRoll.manualPulledLength.ToString(scoreFormat);
-        resultUI.gameObject.SetActive(true);
+        resultUI.SetActive(true);
 
         finishAudio.Play();
 
@@ -50,6 +50,6 @@ public class Result : MonoBehaviour
         paperRoll.gameObject.SetActive(false);
         paperRoll.gameObject.SetActive(true);
 
-        resultUI.gameObject.SetActive(false);
+        resultUI.SetActive(false);
     }
 }

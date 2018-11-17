@@ -17,7 +17,7 @@ public class Title : MonoBehaviour
 
     private void OnEnable()
     {
-        titleUI.gameObject.SetActive(false);
+        titleUI.SetActive(false);
     }
 
     public async Task Run()

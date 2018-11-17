@@ -20,12 +20,13 @@ public class Playing : MonoBehaviour
 
     private void OnEnable()
     {
-        playingUI.gameObject.SetActive(false);
+        playingUI.SetActive(false);
     }
 
     public async Task Run()
     {
-        playingUI.gameObject.SetActive(true);
+        playingUI.SetActive(true);
+
         pullHandler.gameObject.SetActive(true);
 
         Action<float> onPull = null;
@@ -49,7 +50,7 @@ public class Playing : MonoBehaviour
 
         await stopTaskSource.Task;
 
-        playingUI.gameObject.SetActive(false);
+        playingUI.SetActive(false);
     }
 
     private void Update()
