@@ -10,14 +10,7 @@ public class GameManager : MonoBehaviour
     private PaperRoll paperRoll;
 
     [SerializeField]
-    private Animator rollingPaperRollAnimator;
-
-    [SerializeField]
-    private GameObject titleText;
-    [SerializeField]
-    private GameObject guidanceText;
-    [SerializeField]
-    private Button startButton;
+    private Title title;
 
     [SerializeField]
     private Countdown countdown;
@@ -32,13 +25,10 @@ public class GameManager : MonoBehaviour
 
     private async Task OnEnable()
     {
-        titleText.SetActive(false);
-        guidanceText.SetActive(false);
-        startButton.gameObject.SetActive(false);
         pulledLengthText.gameObject.SetActive(false);
         pullHandler.gameObject.SetActive(false);
 
-        await StartScreen();
+        await title.Run();
         await GameLoop();
     }
 
@@ -51,33 +41,6 @@ public class GameManager : MonoBehaviour
         paperRoll.gameObject.SetActive(false);
 
         await GameLoop();
-    }
-
-    private async Task StartScreen()
-    {
-        titleText.SetActive(true);
-        guidanceText.SetActive(true);
-        startButton.gameObject.SetActive(true);
-
-        rollingPaperRollAnimator.SetBool("rotate", true);
-
-        var startTaskSource = new TaskCompletionSource<object>();
-
-        UnityAction onClick = null;
-        onClick = () =>
-        {
-            startTaskSource.SetResult(null);
-            startButton.onClick.RemoveListener(onClick);
-        };
-        startButton.onClick.AddListener(onClick);
-
-        await startTaskSource.Task;
-
-        titleText.SetActive(false);
-        guidanceText.SetActive(false);
-        startButton.gameObject.SetActive(false);
-
-        rollingPaperRollAnimator.SetBool("rotate", false);
     }
 
     private async Task Playing()
