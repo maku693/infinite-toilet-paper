@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Title : MonoBehaviour
 {
     [SerializeField]
+    private PaperRoll paperRoll;
+
+    [SerializeField]
     private Animator rollingPaperRollAnimator;
 
     [SerializeField]
@@ -17,11 +20,13 @@ public class Title : MonoBehaviour
 
     private void OnEnable()
     {
+        paperRoll.gameObject.SetActive(false);
         titleUI.SetActive(false);
     }
 
     public async Task Run()
     {
+        paperRoll.gameObject.SetActive(true);
         titleUI.SetActive(true);
 
         rollingPaperRollAnimator.SetBool("rotate", true);
