@@ -26,11 +26,9 @@ public class GameManager : MonoBehaviour
 
     private async Task GameLoop()
     {
-        paperRoll.gameObject.SetActive(true);
-        await countdown.BeginCountdown();
+        await countdown.Run();
         await playing.Run();
-        await result.ShowResult(paperRoll.manualPulledLength);
-        paperRoll.gameObject.SetActive(false);
+        await result.Run();
 
         await GameLoop();
     }

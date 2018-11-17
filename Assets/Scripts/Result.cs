@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Result : MonoBehaviour
 {
     [SerializeField]
+    private PaperRoll paperRoll;
+
+    [SerializeField]
     private GameObject resultUI;
 
     [SerializeField]
@@ -25,9 +28,9 @@ public class Result : MonoBehaviour
         resultUI.gameObject.SetActive(false);
     }
 
-    public async Task ShowResult(float score)
+    public async Task Run()
     {
-        scoreText.text = score.ToString(scoreFormat);
+        scoreText.text = paperRoll.manualPulledLength.ToString(scoreFormat);
         resultUI.gameObject.SetActive(true);
 
         finishAudio.Play();
@@ -43,6 +46,9 @@ public class Result : MonoBehaviour
         restartButton.onClick.AddListener(onClick);
 
         await restartTaskSource.Task;
+
+        paperRoll.gameObject.SetActive(false);
+        paperRoll.gameObject.SetActive(true);
 
         resultUI.gameObject.SetActive(false);
     }

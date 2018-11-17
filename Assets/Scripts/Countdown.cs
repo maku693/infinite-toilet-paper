@@ -7,9 +7,13 @@ using UnityEngine;
 public class Countdown : MonoBehaviour
 {
     [SerializeField]
+    private GameObject countdownUI;
+
+    [SerializeField]
     private TMP_Text countdownText;
     [SerializeField]
     private string readyText;
+
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
@@ -21,12 +25,12 @@ public class Countdown : MonoBehaviour
 
     private void OnEnable()
     {
-        countdownText.gameObject.SetActive(false);
+        countdownUI.SetActive(false);
     }
 
-    public async Task BeginCountdown()
+    public async Task Run()
     {
-        countdownText.gameObject.SetActive(true);
+        countdownUI.SetActive(true);
 
         audioSource.clip = readyAudioClip;
         audioSource.Play();
@@ -45,6 +49,6 @@ public class Countdown : MonoBehaviour
         audioSource.clip = startAudioClip;
         audioSource.Play();
 
-        countdownText.gameObject.SetActive(false);
+        countdownUI.SetActive(false);
     }
 }
