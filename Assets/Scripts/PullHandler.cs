@@ -26,7 +26,7 @@ public class PullHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         var pullDuration = Time.time - beginDragTime;
         var pullSpeed = pullDistance / pullDuration;
 
-        paperRoll.pullSpeed = pullSpeed;
+        paperRoll.Pull(pullSpeed);
 
         Destroy(gameObject);
     }

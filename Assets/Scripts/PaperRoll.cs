@@ -14,7 +14,11 @@ public class PaperRoll : MonoBehaviour
     }
     public float pulledLength => initialLength + manualPulledLength;
 
-    public float pullSpeed;
+    public float pullSpeed
+    {
+        get;
+        private set;
+    }
     [SerializeField]
     private float pullSpeedMultiplier;
     [SerializeField]
@@ -28,6 +32,11 @@ public class PaperRoll : MonoBehaviour
     private void Enable()
     {
         isStopped = false;
+    }
+
+    public void Pull(float speed)
+    {
+        pullSpeed = speed;
     }
 
     private void Update()
