@@ -20,9 +20,9 @@ public class PaperGrower : MonoBehaviour
         position.y = initialPaperPosition.y * paperRoll.pulledLength;
         paper.transform.position = position;
 
-        var localScale = new Vector3(1, paperRoll.pulledLength, 1);
+        var localScale = new Vector3(1, -paperRoll.pulledLength, 1);
         // Apply the mesh's rotation
-        localScale = paper.transform.rotation * localScale;
+        localScale = paper.transform.localRotation * localScale;
         paper.transform.localScale = localScale;
     }
 }
