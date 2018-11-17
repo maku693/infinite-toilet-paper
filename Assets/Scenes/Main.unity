@@ -750,8 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc1ed9873c9d004cba45f7ea4677c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulledLength: 0
-  pullSpeed: 0
+  initialLength: 0.1
   pullSpeedMultiplier: 1
   pullSpeedFriction: 0.01
   pullSpeedTorelance: 0.01

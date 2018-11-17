@@ -8,7 +8,7 @@ public class PulledLengthText : MonoBehaviour
 
     [SerializeField]
     private string pulledLengthFormat;
-    private string pulledLengthString => paperRoll.pulledLength.ToString(pulledLengthFormat);
+    private string pulledLengthString => paperRoll.manualPulledLength.ToString(pulledLengthFormat);
 
     [SerializeField]
     private TMP_Text text;

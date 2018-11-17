@@ -5,7 +5,15 @@ public class PaperRoll : MonoBehaviour
 {
     private const float inch2cm = 2.54F;
 
-    public float pulledLength;
+    [SerializeField]
+    private float initialLength;
+    public float manualPulledLength
+    {
+        get;
+        private set;
+    }
+    public float pulledLength => initialLength + manualPulledLength;
+
     public float pullSpeed;
     [SerializeField]
     private float pullSpeedMultiplier;
@@ -26,13 +34,13 @@ public class PaperRoll : MonoBehaviour
     {
         if (isStopped) { return; }
 
-        if (pulledLength != 0.0F && pullSpeed < pullSpeedTorelance)
+        if (manualPulledLength != 0.0F && pullSpeed < pullSpeedTorelance)
         {
             isStopped = true;
             return;
         }
 
-        pulledLength += pullSpeed * pullSpeedMultiplier * Time.deltaTime;
+        manualPulledLength += pullSpeed * pullSpeedMultiplier * Time.deltaTime;
         pullSpeed *= pullSpeedDamping;
     }
 }
