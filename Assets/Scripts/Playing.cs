@@ -50,6 +50,8 @@ public class Playing : MonoBehaviour
 
         await stopTaskSource.Task;
 
+        await Task.Delay(TimeSpan.FromSeconds(1));
+
         playingUI.SetActive(false);
     }
 
