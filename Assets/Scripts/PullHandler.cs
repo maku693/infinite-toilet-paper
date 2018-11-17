@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Tab : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PullHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField]
     private PaperRoll paperRoll;
