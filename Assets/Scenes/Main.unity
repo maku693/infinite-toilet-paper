@@ -3036,7 +3036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paperRoll: {fileID: 1037313247}
   audio: {fileID: 1759579371}
-  coverNoisePlayRate: 0.5
+  coverNoisePlayRate: 0.1
 --- !u!82 &1759579371
 AudioSource:
   m_ObjectHideFlags: 0

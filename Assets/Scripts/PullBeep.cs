@@ -20,10 +20,14 @@ public class PullBeep : MonoBehaviour
 
     private void Update()
     {
-        if (paperRoll.pulledLength - lastCoverNoisePlayedLength > coverNoisePlayRate)
+        var pulledLength = paperRoll.manualPulledLength;
+        // Normalize pulledLength
+        pulledLength -= pulledLength % coverNoisePlayRate;
+
+        if (pulledLength - lastCoverNoisePlayedLength > 0)
         {
             audio.Play();
-            lastCoverNoisePlayedLength = paperRoll.pulledLength;
+            lastCoverNoisePlayedLength = pulledLength;
         }
     }
 }
