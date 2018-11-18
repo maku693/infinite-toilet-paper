@@ -18,12 +18,6 @@ public class Title : MonoBehaviour
     [SerializeField]
     private Button startButton;
 
-    private void OnEnable()
-    {
-        paperRoll.gameObject.SetActive(false);
-        titleUI.SetActive(false);
-    }
-
     public async Task Run()
     {
         paperRoll.gameObject.SetActive(true);

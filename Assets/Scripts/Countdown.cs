@@ -7,10 +7,13 @@ using UnityEngine;
 public class Countdown : MonoBehaviour
 {
     [SerializeField]
-    private GameObject countdownUI;
+    private PaperRoll paperRoll;
 
     [SerializeField]
+    private GameObject countdownUI;
+    [SerializeField]
     private TMP_Text countdownText;
+
     [SerializeField]
     private string readyText;
 
@@ -30,6 +33,9 @@ public class Countdown : MonoBehaviour
 
     public async Task Run()
     {
+        paperRoll.gameObject.SetActive(false);
+        paperRoll.gameObject.SetActive(true);
+
         countdownUI.SetActive(true);
 
         audioSource.clip = readyAudioClip;

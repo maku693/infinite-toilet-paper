@@ -47,9 +47,6 @@ public class Result : MonoBehaviour
 
         await restartTaskSource.Task;
 
-        paperRoll.gameObject.SetActive(false);
-        paperRoll.gameObject.SetActive(true);
-
         resultUI.SetActive(false);
     }
 }
