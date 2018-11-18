@@ -1,8 +1,8 @@
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UniRx.Async;
 
 public class Result : MonoBehaviour
 {
@@ -28,19 +28,19 @@ public class Result : MonoBehaviour
         resultUI.SetActive(false);
     }
 
-    public async Task Run()
+    public async UniTask Run()
     {
         scoreText.text = paperRoll.manualPulledLength.ToString(scoreFormat);
         resultUI.SetActive(true);
 
         finishAudio.Play();
 
-        var restartTaskSource = new TaskCompletionSource<object>();
+        var restartTaskSource = new UniTaskCompletionSource();
 
         UnityAction onClick = null;
         onClick = () =>
         {
-            restartTaskSource.SetResult(null);
+            restartTaskSource.TrySetResult();
             restartButton.onClick.RemoveListener(onClick);
         };
         restartButton.onClick.AddListener(onClick);

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using TMPro;
+using UniRx.Async;
 using UnityEngine;
 
 public class Countdown : MonoBehaviour
@@ -33,7 +33,7 @@ public class Countdown : MonoBehaviour
         countdownUI.SetActive(false);
     }
 
-    public async Task Run()
+    public async UniTask Run()
     {
         paperRoll.gameObject.SetActive(false);
         paperRoll.gameObject.SetActive(true);
@@ -45,7 +45,7 @@ public class Countdown : MonoBehaviour
         audioSource.clip = readyAudioClip;
         audioSource.Play();
         countdownText.text = readyText;
-        await Task.Delay(TimeSpan.FromSeconds(1));
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
 
         audioSource.clip = countAudioClip;
         var counts = Enumerable.Range(1, 3).Reverse();
@@ -53,7 +53,7 @@ public class Countdown : MonoBehaviour
         {
             audioSource.Play();
             countdownText.text = count.ToString();
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
 
         audioSource.clip = startAudioClip;

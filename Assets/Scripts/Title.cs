@@ -1,5 +1,4 @@
-using System.Threading.Tasks;
-using TMPro;
+using UniRx.Async;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,19 +17,19 @@ public class Title : MonoBehaviour
     [SerializeField]
     private Button startButton;
 
-    public async Task Run()
+    public async UniTask Run()
     {
         paperRoll.gameObject.SetActive(true);
         titleUI.SetActive(true);
 
         rollingPaperRollAnimator.SetBool("rotate", true);
 
-        var startTaskSource = new TaskCompletionSource<object>();
+        var startTaskSource = new UniTaskCompletionSource();
 
         UnityAction onClick = null;
         onClick = () =>
         {
-            startTaskSource.SetResult(null);
+            startTaskSource.TrySetResult();
             startButton.onClick.RemoveListener(onClick);
         };
         startButton.onClick.AddListener(onClick);

@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using UniRx.Async;
 using UnityEngine;
 
 [DefaultExecutionOrder(1)]
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         await GameLoop();
     }
 
-    private async Task GameLoop()
+    private async UniTask GameLoop()
     {
         await countdown.Run();
         await playing.Run();

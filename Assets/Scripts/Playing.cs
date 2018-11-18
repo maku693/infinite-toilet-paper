@@ -1,9 +1,6 @@
 using System;
-using System.Threading.Tasks;
-using TMPro;
+using UniRx.Async;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Playing : MonoBehaviour
 {
@@ -44,25 +41,25 @@ public class Playing : MonoBehaviour
         scrollHandler.onScroll += onScroll;
     }
 
-    public async Task Run()
+    public async UniTask Run()
     {
         playingUI.SetActive(true);
         pullHandler.gameObject.SetActive(true);
         scrollHandler.gameObject.SetActive(true);
 
-        var stopTaskSource = new TaskCompletionSource<object>();
+        var stopTaskSource = new UniTaskCompletionSource();
 
         Action onStop = null;
         onStop = () =>
         {
-            stopTaskSource.SetResult(null);
+            stopTaskSource.TrySetResult();
             paperRoll.onStop -= onStop;
         };
         paperRoll.onStop += onStop;
 
         await stopTaskSource.Task;
 
-        await Task.Delay(TimeSpan.FromSeconds(1));
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
 
         playingUI.SetActive(false);
     }
