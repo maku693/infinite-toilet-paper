@@ -26,15 +26,14 @@ public class Playing : MonoBehaviour
     public async Task Run()
     {
         playingUI.SetActive(true);
-
         pullHandler.gameObject.SetActive(true);
 
         Action<float> onPull = null;
         onPull = pullSpeed =>
         {
             paperRoll.Pull(pullSpeed);
-            pullHandler.onPull -= onPull;
             pullHandler.gameObject.SetActive(false);
+            pullHandler.onPull -= onPull;
         };
         pullHandler.onPull += onPull;
 
