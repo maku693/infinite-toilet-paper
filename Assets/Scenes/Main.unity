@@ -1931,7 +1931,7 @@ MonoBehaviour:
   initialLength: 0.1
   pullSpeedMultiplier: 2
   pullSpeedFriction: 0.01
-  pullSpeedTorelance: 0.01
+  pullSpeedTorelance: 0.001
 --- !u!1 &1067515092
 GameObject:
   m_ObjectHideFlags: 0
