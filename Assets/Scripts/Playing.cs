@@ -17,25 +17,38 @@ public class Playing : MonoBehaviour
     private PulledLengthText pulledLengthText;
     [SerializeField]
     private PullHandler pullHandler;
+    [SerializeField]
+    private ScrollHandler scrollHandler;
+    [SerializeField]
+    private float scrollSpeedMultiplier;
 
     private void OnEnable()
     {
         playingUI.SetActive(false);
-    }
-
-    public async Task Run()
-    {
-        playingUI.SetActive(true);
-        pullHandler.gameObject.SetActive(true);
+        scrollHandler.gameObject.SetActive(false);
 
         Action<float> onPull = null;
         onPull = pullSpeed =>
         {
             paperRoll.Pull(pullSpeed);
             pullHandler.gameObject.SetActive(false);
-            pullHandler.onPull -= onPull;
         };
         pullHandler.onPull += onPull;
+
+        Action<float> onScroll = null;
+        onScroll = scrollSpeed =>
+        {
+            paperRoll.Pull(scrollSpeed * scrollSpeedMultiplier);
+            scrollHandler.gameObject.SetActive(false);
+        };
+        scrollHandler.onScroll += onScroll;
+    }
+
+    public async Task Run()
+    {
+        playingUI.SetActive(true);
+        pullHandler.gameObject.SetActive(true);
+        scrollHandler.gameObject.SetActive(true);
 
         var stopTaskSource = new TaskCompletionSource<object>();
 
