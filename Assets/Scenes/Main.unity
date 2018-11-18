@@ -834,7 +834,7 @@ MonoBehaviour:
   paperRoll: {fileID: 1037313247}
   resultUI: {fileID: 1296206016}
   scoreText: {fileID: 445872532}
-  scoreFormat: <mspace=2em>0</mspace>.<mspace=2em>000</mspace>m
+  scoreFormat: 0.000m
   finishAudio: {fileID: 291954342}
   restartButton: {fileID: 1548590728}
 --- !u!82 &291954342
@@ -1284,7 +1284,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>m
+  m_text: 000.000m
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bb6960bdd4c1434b996cb9cd3a4710a, type: 2}
   m_sharedMaterial: {fileID: 21562749604217334, guid: 7bb6960bdd4c1434b996cb9cd3a4710a,
