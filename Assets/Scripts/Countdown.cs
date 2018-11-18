@@ -8,6 +8,8 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField]
     private PaperRoll paperRoll;
+    [SerializeField]
+    private PullBeep pullBeep;
 
     [SerializeField]
     private GameObject countdownUI;
@@ -35,6 +37,8 @@ public class Countdown : MonoBehaviour
     {
         paperRoll.gameObject.SetActive(false);
         paperRoll.gameObject.SetActive(true);
+        pullBeep.gameObject.SetActive(false);
+        pullBeep.gameObject.SetActive(true);
 
         countdownUI.SetActive(true);
 

@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperRoll: {fileID: 1037313247}
+  pullBeep: {fileID: 1759579370}
   countdownUI: {fileID: 1859858843}
   countdownText: {fileID: 443855413}
   readyText: READY
