@@ -1,6 +1,7 @@
 using System;
 using UniRx.Async;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Playing : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class Playing : MonoBehaviour
     private ScrollHandler scrollHandler;
     [SerializeField]
     private float scrollSpeedMultiplier;
+
+    [SerializeField]
+    private new Camera camera;
+    [SerializeField]
+    private GameObject pulledPaper;
+    [SerializeField]
+    private RectTransform arrow;
+    [SerializeField]
+    private float hideArrowUntil;
 
     private void OnEnable()
     {
@@ -46,6 +56,7 @@ public class Playing : MonoBehaviour
         playingUI.SetActive(true);
         pullHandler.gameObject.SetActive(true);
         scrollHandler.gameObject.SetActive(true);
+        arrow.gameObject.SetActive(false);
 
         var stopTaskSource = new UniTaskCompletionSource();
 
@@ -67,5 +78,17 @@ public class Playing : MonoBehaviour
     private void Update()
     {
         pulledLengthText.pulledLength = paperRoll.manualPulledLength;
+
+        if (paperRoll.pulledLength > hideArrowUntil)
+        {
+            arrow.gameObject.SetActive(true);
+        }
+
+        var paperRollEdge = new Vector3(
+            pulledPaper.transform.position.x,
+            -paperRoll.pulledLength,
+            pulledPaper.transform.position.z
+        );
+        arrow.position = camera.WorldToScreenPoint(paperRollEdge);
     }
 }
